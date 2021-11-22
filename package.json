@@ -1,8 +1,17 @@
 {
   "name": "instaclone",
   "version": "1.0.0",
-  "main": "index.js",
-  "repository": "https://github.com/olyesung/instaclon-backend.git",
+  "scripts": {
+    "dev": "nodemon --exec node server.js"
+  },
+  "repository": "https://github.com/olyesung/instaclon-backend",
   "author": "olyesung <84299012+olyesung@users.noreply.github.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "apollo-server": "^3.5.0",
+    "graphql": "^16.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
 }
