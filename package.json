@@ -8,6 +8,7 @@
   "author": "olyesung <84299012+olyesung@users.noreply.github.com>",
   "license": "MIT",
   "dependencies": {
+    "@prisma/client": "3.5.0",
     "apollo-server": "^3.5.0",
     "graphql": "^16.0.1"
   },
@@ -16,6 +17,6 @@
     "@babel/node": "^7.16.0",
     "@babel/preset-env": "^7.16.4",
     "nodemon": "^2.0.15",
-    "prisma": "^3.5.0"
+    "prisma": "3.5.0"
   }
 }
