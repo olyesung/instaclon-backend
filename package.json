@@ -2,7 +2,8 @@
   "name": "instaclone",
   "version": "1.0.0",
   "scripts": {
-    "dev": "nodemon --exec babel-node server"
+    "dev": "nodemon --exec babel-node server",
+    "migrate": "npx prisma migrate dev"
   },
   "repository": "https://github.com/olyesung/instaclon-backend",
   "author": "olyesung <84299012+olyesung@users.noreply.github.com>",
