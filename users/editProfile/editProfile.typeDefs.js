@@ -1,6 +1,16 @@
 import { gql } from "apollo-server";
 
 export default gql`
+  scalar Upload
+
+  type File {
+    filename: String!
+    mimetype: String!
+    encoding: String!
+  }
+  type Query {
+    otherFields: Boolean!
+  }
   type EditProfileResult {
     ok: Boolean!
     error: String
@@ -15,5 +25,6 @@ export default gql`
       bio: String
       avatar: Upload
     ): EditProfileResult!
+    singleUpload(file: Upload!): File!
   }
 `;
