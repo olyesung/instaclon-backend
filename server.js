@@ -8,28 +8,8 @@ import { getUser } from "./users/users.utils";
 
 const PORT = process.env.PORT;
 
-// async function startServer() {
-//   const server = new ApolloServer({
-//     typeDefs,
-//     resolvers,
-//     context: async ({ req }) => {
-//       return {
-//         loggedInUser: await getUser(req.headers.token),
-//       };
-//     },
-//   });
-//   await server.start();
-//   const app = express();
-//   app.use(graphqlUploadExpress());
-//   server.applyMiddleware({ app });
-//   await new Promise((func) => app.listen({ port: PORT }, func));
-//   console.log(`🚀 Server: http://localhost:${PORT}${server.graphqlPath}`);
-// }
-
-// startServer();
-
 async function startServer() {
-  const server = new ApolloServer({
+  const apollo = new ApolloServer({
     resolvers,
     typeDefs,
     context: async ({ req }) => {
@@ -39,11 +19,12 @@ async function startServer() {
     },
   });
 
-  await server.start();
+  await apollo.start();
   const app = express();
   app.use(graphqlUploadExpress());
   app.use(logger("tiny"));
-  server.applyMiddleware({ app });
+  apollo.applyMiddleware({ app });
+  app.use("/static", express.static("uploads"));
   app.listen({ port: PORT }, () => {
     console.log(`🚀Server is running on http://localhost:${PORT} ✅`);
   });
