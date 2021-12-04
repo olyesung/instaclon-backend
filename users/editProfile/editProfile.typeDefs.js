@@ -11,10 +11,6 @@ export default gql`
   type Query {
     otherFields: Boolean!
   }
-  type EditProfileResult {
-    ok: Boolean!
-    error: String
-  }
   type Mutation {
     editProfile(
       firstName: String
@@ -24,7 +20,7 @@ export default gql`
       password: String
       bio: String
       avatar: Upload
-    ): EditProfileResult!
+    ): MutationResponse!
     singleUpload(file: Upload!): File!
   }
 `;
