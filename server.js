@@ -9,7 +9,6 @@ import express from "express";
 import logger from "morgan";
 import { resolvers, typeDefs } from "./schema";
 import { getUser } from "./users/users.utils";
-import pubsub from "./pubsub";
 
 const PORT = process.env.PORT;
 
@@ -27,9 +26,11 @@ async function startServer() {
   const apollo = new ApolloServer({
     schema,
     context: async ({ req }) => {
-      return {
-        loggedInUser: await getUser(req.headers.token),
-      };
+      if (req) {
+        return {
+          loggedInUser: await getUser(req.headers.token),
+        };
+      }
     },
     plugins: [
       {
